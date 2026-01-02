@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Saya</title>
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .tabel {
+        width: 350px;
+        padding: 30px;
+        background-color: white;
+        box-shadow: 0px 0px 15px rgb(255, 255, 255);
+        border-radius: 15px;
+    }
+
+    .tabel h2 {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: -10px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin: 6px 0px 12px;
+        margin-left: -9px;
+        border-radius: 5px;
+        border: 1.5px solid #cccccc;
+        transition: 0.3s ease;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #000000;
+    }
+
+    input:hover {
+        border-color: #000000;
+    }
+
+    button {
+        width: 100%;
+        padding: 13px;
+        margin-top: 10px;
+        border-radius: 15px;
+        border: none;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 0px 8px rgb(176, 176, 176);
+    }
+
+    #hasilnya {
+        margin-top: 15px;
+        font-size: 16px;
+        background: #ededed;
+        padding: 7px;
+        border-radius: 6px;
+        border-left: 5px solid #333;
+    }
+</style>
+
+<body>
+    <div class="tabel">
+        <h2>Data Mahasiswa dan Usiannya</h2>
+        <label>Nama Anda :</label>
+        <input type="text" id="nama" placeholder="Masukkan Nama Anda">
+        <label>NIM Anda :</label>
+        <input type="number" id="nim" placeholder="Masukkan NIM Anda">
+        <label>Tahun Lahir :</label>
+        <input type="number" id="lahir" placeholder="Masukkan Tahun Lahir Anda">
+        <button onclick="hasil()">Tampilkan</button>
+        <div id="hasilnya"></div>
+    </div>
+
+    <script>
+        function hasil(){
+            const nama = document.getElementById("nama").value;
+            const nim = document.getElementById("nim").value;
+            const lahir = parseInt(document.getElementById("lahir").value);
+
+            const tahunSekarang = new Date().getFullYear();
+            const usia = tahunSekarang - lahir;
+
+            document.getElementById("hasilnya").innerHTML = `
+                <p><b>Nama :</b> ${nama}</p>
+                <p><b>NIM  :</b> ${nim}</p>
+                <p><b>Tahun Lahir :</b> ${lahir}</p>
+                <p><b>Usia :</b> ${usia} tahun</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
